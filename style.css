@@ -154,6 +154,14 @@ section {
   margin: 0 10rem;
   box-sizing: border-box;
   min-height: fit-content;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+section.animate {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .section-container {
@@ -353,35 +361,111 @@ article .icon {
   cursor: default;
 }
 
-/* PROJECTS SECTION */
-#projects {
-
-  justify-content: center; /* Center the items horizontally */
-  align-items: center; /* Center the items vertically if needed */
+.skill-progress {
+  width: 100%;
+  background-color: #e0e0e0;
+  border-radius: 0.5rem;
+  margin-top: 0.5rem;
 }
 
-.color-container {
-  border-color: rgb(163, 163, 163);
-  background: rgb(250, 250, 250);
+.skill-bar {
+  height: 0.5rem;
+  background-color: #4CAF50;
+  border-radius: 0.5rem;
+  transition: width 1s ease-in-out;
+}
+
+/* PROJECTS SECTION */
+#projects {
+  padding: 4rem 0;
+  background: linear-gradient(to bottom, #ffffff, #feffff);
+}
+
+#projects .experience-details-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+#projects .about-containers {
+  display: grid;
+  gap: 2rem;
+  justify-content: center;
+  width: 700px;
+
+  margin: 0 auto;
+}
+
+.details-container {
+  background: white;
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.details-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .project-img {
-  border-radius: 2rem;
-  width: 350px;
-  height: 250px;
+  width: 700px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.details-container:hover .project-img {
+  transform: scale(1.05);
 }
 
 .project-title {
-  margin: 1rem;
-  color: black;
+  font-size: 1.2rem;
+  margin: 1rem 0;
+  color: #333;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1rem;
 }
 
 .project-btn {
-  color: black;
-  border-color: rgb(163, 163, 163);
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
 }
 
+.project-btn:hover {
+  background-color: #333;
+  color: white;
+}
 
+.project-details {
+  background-color: #f8f8f8;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.project-details.show {
+  display: block;
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  #projects .about-containers {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
 /* CONTACT */
 
 #contact {
